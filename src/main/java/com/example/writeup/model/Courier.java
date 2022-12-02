@@ -1,9 +1,10 @@
 package com.example.writeup.model;
 
-import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import javax.persistence.*;
 import java.util.Date;
 
 @Getter
@@ -11,7 +12,7 @@ import java.util.Date;
 @NoArgsConstructor
 @Entity
 @Table(name = "USER")
-public class User {
+public class Courier {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,7 +34,7 @@ public class User {
     @Column(name = "POST_ID")
     private Integer postId;
 
-    public User(String firstName, String lastName, Date dob, String address, Integer postId) {
+    public Courier(String firstName, String lastName, Date dob, String address, Integer postId) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.dob = dob;
