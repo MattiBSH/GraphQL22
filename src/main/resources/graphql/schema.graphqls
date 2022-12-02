@@ -1,0 +1,24 @@
+schema {
+    query: Query,
+    mutation: Mutation,
+}
+
+type Query{
+    # Fetch All Users
+    getAllUsers:[User]
+
+}
+
+type Mutation {
+    # Update the user address
+    updateUserAddress(userId:Int,address:String): User
+}
+
+type User {
+    userId : ID!,
+    firstName :String,
+    lastName :String,
+    dob:String,
+    address:String,
+    postId : Int,
+}
