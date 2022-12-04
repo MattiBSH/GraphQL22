@@ -7,7 +7,7 @@ type Query{
     # Fetch All Couriers
     findAllCouriers: [Courier]
     findOneCourier(id: ID): Courier
-    #findAvailableCourier(available: Boolean): [Courier]
+    findAvailableCourier(available: Boolean): [Courier]
 
 }
 
