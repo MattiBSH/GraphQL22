@@ -1,24 +1,29 @@
 schema {
     query: Query,
-    mutation: Mutation,
+    #mutation: Mutation,
 }
 
 type Query{
-    # Fetch All Users
-    getAllUsers:[User]
+    # Fetch All Couriers
+    findAllCouriers: [Courier]
+    findOneCourier(id: ID): Courier
+    #findAvailableCourier(available: Boolean): [Courier]
 
 }
 
-type Mutation {
-    # Update the user address
-    updateUserAddress(userId:Int,address:String): User
-}
+#type Mutation {
+# Update the courier address
+#updateCourierEmail(userId:Int,email:String): Courier
+#create(firstName: String, lastName: String, email: String, password: String, available: Boolean): Courier
+#update(id: ID, firstName: String, lastName: String, email: String, password: String, available: Boolean): Courier
+#delete(id: ID): Courier
+#}
 
-type User {
-    userId : ID!,
-    firstName :String,
-    lastName :String,
-    dob:String,
-    address:String,
-    postId : Int,
+type Courier {
+    courierId: ID!
+    firstName: String!
+    lastName: String!
+    email: String!
+    password: String!
+    available: Boolean!
 }

@@ -3,7 +3,7 @@ package com.example.writeup.service;
 import com.coxautodev.graphql.tools.GraphQLMutationResolver;
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
 import com.example.writeup.model.Courier;
-import com.example.writeup.repository.UserRepository;
+import com.example.writeup.repository.CourierRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,21 +13,13 @@ import java.util.List;
 public class UserService implements GraphQLQueryResolver, GraphQLMutationResolver {
 
     @Autowired
-    private UserRepository userRepository;
+    private CourierRepository courierRepository;
 
-    public List<Courier> getAllUsers() {
-        return userRepository.findAll();
+    public List<Courier> findAllCouriers() {
+        return courierRepository.findAll();
     }
 
-    public Courier updateUserAddress(Integer userId, String address) throws Exception {
-        try {
-            userRepository.updateUserAddress(address, userId);
-            Courier user = userRepository.findById(userId).get();
-            return user;
-        } catch (Exception e) {
-            throw new Exception(e);
-        }
-
+    public Courier findOneCourier(Integer id) {
+        return courierRepository.findById(id).get();
     }
-
 }
